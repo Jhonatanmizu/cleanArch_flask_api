@@ -1,0 +1,11 @@
+services:
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "clean_architecture_db"
+      MYSQL_USER: "mizu"
+      MYSQL_PASSWORD: "root"
+    ports:
+      - 3306:3306
