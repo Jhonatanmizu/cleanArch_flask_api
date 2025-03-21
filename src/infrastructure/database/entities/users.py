@@ -2,7 +2,7 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import DateTime
 
-from src.infraestructure.database.settings.base import Base
+from src.infrastructure.database.settings.base import Base
 
 
 class Users(Base):
