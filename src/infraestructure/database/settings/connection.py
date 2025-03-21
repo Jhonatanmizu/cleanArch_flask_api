@@ -7,7 +7,7 @@ class DBConnectionHandler:
     """SqlAlchemy database connection"""
 
     def __init__(self):
-        user = "root"
+        user = "mizu"
         password = "root"
         host = "localhost"
         port = "3306"
