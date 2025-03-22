@@ -1,9 +1,9 @@
-create database if not  exists `clean_architecture_db`;
+CREATE DATABASE IF NOT EXISTS `clean_architecture_db`;
 
-
-create table if not exists `clean_architecture_db`.`users`(
-    id int not null auto_increment,
-    first_name varchar(100) not null,
-    last_name varchar(100) not null,
-    primary key(id)
-)
+CREATE TABLE IF NOT EXISTS `clean_architecture_db`.`users` (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    birthdate DATETIME NOT NULL,
+    PRIMARY KEY (id)
+);
