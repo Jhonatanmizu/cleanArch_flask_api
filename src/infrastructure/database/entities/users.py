@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import DateTime
@@ -14,7 +16,8 @@ class Users(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String(254))
     last_name: Mapped[str] = mapped_column(String(254))
-    birthdate: Mapped[DateTime] = mapped_column(DateTime(False))
+    birthdate: Mapped[datetime] = mapped_column(DateTime)
 
     def __repr__(self) -> str:
-        return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+        fullname = f'{self.first_name} ${self.last_name}'
+        return f"User(id={self.id!r}, fullname={fullname!r})"
