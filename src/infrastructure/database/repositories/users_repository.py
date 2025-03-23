@@ -1,8 +1,6 @@
 
 from datetime import datetime
 
-from sqlalchemy import text
-
 from src.infrastructure.database.entities.users import Users as UsersEntity
 from src.infrastructure.database.settings.connection import DBConnectionHandler
 
