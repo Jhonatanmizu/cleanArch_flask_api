@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import text
 
 from .connection import DBConnectionHandler
@@ -23,7 +25,13 @@ def test_create_user():
     db_connection = DBConnectionHandler()
     engine = db_connection.get_engine()
     connection = engine.connect()
+    sql = text("""
+            INSERT INTO users (first_name, last_name, birthdate) 
+            VALUES (:first_name, :last_name, :birthdate)
+        """)
     connection.execute(
-        text("INSERT INTO users (first_name,last_name) values ('Hi','m1zu')")
+        sql,
+        {"first_name": "Hi", "last_name": "Mizu", "birthdate": datetime.now()}
     )
+
     connection.commit()
