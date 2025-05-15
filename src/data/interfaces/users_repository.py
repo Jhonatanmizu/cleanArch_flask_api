@@ -6,48 +6,14 @@ from src.domain.models.users import Users
 
 
 class UsersRepository(ABC):
-    """
-        Users repository interface
-    """
-    @abstractmethod
-    def insert_user(self, first_name: str, last_name: str, birthdate: datetime):
-        """_summary_
-        Insert user
-        Args:
-            first_name (str): _description_
-            last_name (str): _description_
-            birthdate (DateTime): _description_
-
-        Raises:
-            exception: _description_
-        """
 
     @abstractmethod
-    def find_user_by_id(self, _id: int) -> List[Users] | None:
-        """_summary_
+    def insert_user(self, first_name: str, last_name: str,
+                    birthdate: datetime): pass
 
-            Find user by id
-        Args:
-            _id (int): _description_
-
-        Raises:
-            exception: _description_
-
-        Returns:
-            UsersEntity | None: _description_
-        """
+    @abstractmethod
+    def find_user_by_id(self, _id: int) -> List[Users] | None: pass
 
     @abstractmethod
     def find_user_by_first_name(
-            self, first_name: str) -> List[Users] | None:
-        """_summary_
-            Find user by first_name and last_name
-        Args:
-            first_name (str): _description_
-
-        Raises:
-            exception: _description_
-
-        Returns:
-            UsersEntity | None: _description_
-        """
+        self, first_name: str) -> List[Users] | None: pass

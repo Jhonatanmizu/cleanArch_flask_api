@@ -9,10 +9,10 @@ disable=
       W0221, # Arguments-differ
       R0801, # Similar lines,
       R0903, # Too few public methods
-      W9020, # Useless type doc
-      W9019, # Useless param doc
       R1711, # Useless return
-      W9006, # Missing raises doc
+      C0115, # Missing class docstring
+      C0116 # Missing method docstring
+
 
       
 

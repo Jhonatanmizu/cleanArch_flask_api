@@ -9,18 +9,11 @@ from src.domain.use_cases.find_user import FindUser as FindUserInterface
 
 
 class FindUser(FindUserInterface):
-    """_summary_
-        FindUser use case implementation.
-    """
 
     def __init__(self, users_repository: UsersRepositoryInterface) -> None:
         self.__users_repository = users_repository
 
     def find_by_id(self, user_id: int) -> Dict:
-        """_summary_
-            Find user by id.
-        """
-
         if not user_id:
             raise Exception("Missing user_id")
 
@@ -36,9 +29,6 @@ class FindUser(FindUserInterface):
         return response
 
     def find_by_first_name(self, first_name: str) -> Dict:
-        """_summary_
-            Find user by first name.
-        """
         if not first_name.isalpha():
             raise Exception("Name is invalid")
 

@@ -11,9 +11,6 @@ connection = db_connection_handler.get_engine().connect()
 
 
 def test_insert_user():
-    """_summary_
-        test insertion of the user in the database
-    """
     mocked_first_name = "John"
     mocked_last_name = "Doe"
     mocked_birthdate = datetime(year=2000, month=11, day=24)

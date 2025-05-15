@@ -5,9 +5,6 @@ from src.infrastructure.database.tests.users_repository import \
 
 
 def test_find_user_by_first_name():
-    """_summary_
-        Test find user by first name.
-    """
     first_name = "Mathew"
     repository = UsersRepositorySpy()
     find_user = FindUser(repository)  # type: ignore
@@ -19,9 +16,6 @@ def test_find_user_by_first_name():
 
 
 def test_find_user_by_id():
-    """_summary_
-        Test find user by id
-    """
     user_id = 13
     repository = UsersRepositorySpy()
     find_user = FindUser(repository)  # type: ignore

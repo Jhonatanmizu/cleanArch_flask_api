@@ -8,9 +8,6 @@ from src.infrastructure.database.settings.base import Base
 
 
 class Users(Base):
-    """
-        Users entity
-    """
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
