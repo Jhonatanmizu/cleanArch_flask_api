@@ -1,11 +1,15 @@
 
 from datetime import datetime
+from typing import List
 
+from src.data.interfaces.users_repository import \
+    UserRepository as UserRepositoryInterface
+from src.domain.models.users import Users
 from src.infrastructure.database.entities.users import Users as UsersEntity
 from src.infrastructure.database.settings.connection import DBConnectionHandler
 
 
-class UserRepository:
+class UserRepository(UserRepositoryInterface):
     """_summary_
         User repository
     """
@@ -38,7 +42,7 @@ class UserRepository:
                 raise exception
 
     @classmethod
-    def find_user_by_id(cls, _id: int) -> UsersEntity | None:
+    def find_user_by_id(cls, _id: int) -> List[Users] | None:
         """_summary_
 
             Find user by id
@@ -56,7 +60,7 @@ class UserRepository:
                 return None
             try:
 
-                user = database.session.query(
+                user: List[Users] = database.session.query(
                     UsersEntity).filter(UsersEntity.id == _id).first()
                 return user
             except Exception as exception:
@@ -64,7 +68,7 @@ class UserRepository:
                 raise exception
 
     @classmethod
-    def find_user_by_first_name(cls, first_name: str) -> UsersEntity | None:
+    def find_user_by_first_name(cls, first_name: str) -> List[Users] | None:
         """_summary_
             Find user by first_name and last_name
         Args:
@@ -83,7 +87,7 @@ class UserRepository:
 
                 user_query = database.session.query(
                     UsersEntity)
-                user = user_query.filter(
+                user: List[Users] = user_query.filter(
                     UsersEntity.first_name == first_name).first()
                 return user
             except Exception as exception:
