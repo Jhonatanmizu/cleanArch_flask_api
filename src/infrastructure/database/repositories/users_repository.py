@@ -1,15 +1,14 @@
-
 from datetime import datetime
 from typing import List
 
 from src.data.interfaces.users_repository import \
-    UserRepository as UserRepositoryInterface
+    UsersRepository as UsersRepositoryInterface
 from src.domain.models.users import Users
 from src.infrastructure.database.entities.users import Users as UsersEntity
 from src.infrastructure.database.settings.connection import DBConnectionHandler
 
 
-class UserRepository(UserRepositoryInterface):
+class UserRepository(UsersRepositoryInterface):
     """_summary_
         User repository
     """

@@ -5,9 +5,9 @@ from typing import List
 from src.domain.models.users import Users
 
 
-class UserRepository(ABC):
+class UsersRepository(ABC):
     """
-        User repository interface
+        Users repository interface
     """
     @abstractmethod
     def insert_user(self, first_name: str, last_name: str, birthdate: datetime):

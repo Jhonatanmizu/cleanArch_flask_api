@@ -1,21 +1,32 @@
 
 from src.data.use_cases.find_user import FindUser
-from src.infrastructure.database.repositories.users_repository import \
-    UserRepository
+from src.infrastructure.database.tests.users_repository import \
+    UsersRepositorySpy
 
 
-def test_find_user_by_id(mocker):
+def test_find_user_by_first_name():
     """_summary_
-        Test find user by id.
+        Test find user by first name.
     """
-    repository = UserRepository()
-    find_user = FindUser(repository)
-    # mock_user_repository = mocker.patch.object(
-    #     UserRepository, "find_user_by_id")
-    # mock_user_repository.return_value = {"id": 1, "first_name": "John"}
+    first_name = "Mathew"
+    repository = UsersRepositorySpy()
+    find_user = FindUser(repository)  # type: ignore
+    response = find_user.find_by_first_name(first_name)
+    assert repository.find_user_by_first_name_attributes["first_name"] == first_name
+    assert response["type"] == "Users"
+    assert response["count"] == 2
+    assert response["attributes"] != []
 
-    # find_user = FindUser()
-    # result = find_user.find_by_id(1)
 
-    # assert result == {"id": 1, "first_name": "John"}
-    # mock_user_repository.assert_called_once_with(1)
+def test_find_user_by_id():
+    """_summary_
+        Test find user by id
+    """
+    user_id = 13
+    repository = UsersRepositorySpy()
+    find_user = FindUser(repository)  # type: ignore
+    response = find_user.find_by_id(user_id)
+    assert repository.find_user_by_id_attributes["id"] == user_id
+    assert response['type'] == "Users"
+    assert response['count'] == 1
+    assert response["attributes"] != []
